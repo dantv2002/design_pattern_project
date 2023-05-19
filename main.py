@@ -13,10 +13,10 @@ def main():
 
     charBuilder = CharacterBuilder()
     charBuilder.set_name("ThoTy")
-    charBuilder.set_class(classFactory.create("mage")) #mage, warrior, assassin
+    charBuilder.set_class(classFactory.create("priest")) #mage, warrior, assassin, priest
 
     myChar = charBuilder.build()
 
-    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
+    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()} with power {myChar.getSkill().getPower()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
 
 main()
