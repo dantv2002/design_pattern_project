@@ -1,9 +1,9 @@
 class Character:
     
-    def __init__(self, name, thisClass, skill):
+    def __init__(self, name, thisClass):
         self.name = name
         self.thisClass = thisClass
-        self.skill = skill
+        self.skill = thisClass.getSkill()
         self.hp = thisClass.getHp()
         self.atk = thisClass.getAtk()
         self.gold = 0
@@ -19,8 +19,6 @@ class Character:
         return self.skill
     def getGold(self):
         return self.gold
-    def getClass(self):
-        return self.thisClass
     def getHp(self):
         return self.hp
     def getAtk(self):

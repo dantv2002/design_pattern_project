@@ -5,16 +5,16 @@ sys.path.append(os.path.join(parent_folder, ".."))
 
 from CreateSkill.Skill_Factory import SkillFactory
 
-class Warrior:
+class Priest:
     #attribute
-    name = "Warrior"
-    hp = 15
-    atk = 10
+    name = "Priest"
+    hp = 30
+    atk = 2
     skill = None
 
     def __init__(self):
         factory = SkillFactory()
-        self.skill = factory.create("reduce", "Armor Up", 5, 3)
+        self.skill = factory.create("heal", "Holy Light", 60, 5)
     #func
     def getHp(self):
         return self.hp

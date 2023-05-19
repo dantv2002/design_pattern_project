@@ -14,7 +14,6 @@ def main():
     charBuilder = CharacterBuilder()
     charBuilder.set_name("ThoTy")
     charBuilder.set_class(classFactory.create("mage")) #mage, warrior, assassin
-    charBuilder.set_skill(skillFactory.create("dmg", "Fireball", 20)) #dmg, heal, reduce
 
     myChar = charBuilder.build()
 

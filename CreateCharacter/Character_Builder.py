@@ -8,15 +8,12 @@ from CreateCharacter.Character import Character
 class CharacterBuilder:
     def __init__(self):
         self.name = None
-        self.skill = None
         self.thisClass = None
 
     def set_name(self, name):
         self.name = name
-    def set_skill(self, skill):
-        self.skill = skill
     def set_class(self, thisClass):
         self.thisClass = thisClass
 
     def build(self):
-        return Character(self.name, self.thisClass, self.skill)
+        return Character(self.name, self.thisClass)

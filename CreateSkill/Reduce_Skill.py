@@ -1,9 +1,10 @@
 class ReduceSkill:
     type = "dmg"
 
-    def __init__(self, name, power):
+    def __init__(self, name, power, cd):
         self.name = name
         self.power = power
+        self.cd = cd
 
     def getName(self):
         return self.name
@@ -11,3 +12,5 @@ class ReduceSkill:
         return self.power
     def getType(self):
         return self.type
+    def getCoolDown(self):
+        return self.cd
