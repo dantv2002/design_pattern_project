@@ -52,3 +52,19 @@ if __name__ == '__main__':
         print('Max health monster: {}'.format(monster.get_max_health()))
         print('Coin monster: {}'.format(monster.get_coin()))
         print('===================')
+    monster1 = play_screen.list_monster[0]
+    monster2 = play_screen.list_monster[1]
+    monster3 = play_screen.list_monster[2]
+
+    monster1.set_max_health(0)
+    monster2.set_coin(0)
+    monster3.set_coin(0)
+    monster3.set_max_health(0)
+    print()
+    for monster in play_screen.list_monster:
+        print('Name monster: {}'.format(monster.get_name()))
+        print('Level monster: {}'.format(monster.get_level()))
+        print('Max health monster: {}'.format(monster.get_max_health()))
+        print('Coin monster: {}'.format(monster.get_coin()))
+        print('===================')
+    
