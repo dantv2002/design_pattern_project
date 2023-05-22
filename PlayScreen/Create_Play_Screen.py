@@ -10,24 +10,24 @@ from GameLevel_Leaf import GameLevel_Leaf
 import random
 
 class Create_Play_Screen:
-    __MONSTER_LEVELS_OF_PLAY_SCREEN = [{"level1count": 3},
-                                     {"level1count": 2, "level2count": 1},
-                                     {"level1count": 2, "level3count":1},
-                                     {"level1count": 1, "level2count": 2},
-                                     {"level1count": 1, "level2count": 1, "level3count": 1},
-                                     {"level2count": 3},
-                                     {"level2count": 2, "level3count": 1},
-                                     {"level3count": 1, "level2count": 2},
-                                     {"level3count": 2, "level2count": 1},
-                                     {"level3count": 3}]
     def __init__(self, play_screen_level):
         self.__play_screen_level = play_screen_level
     
     def create(self):
+        __MONSTER_LEVELS_OF_PLAY_SCREEN = [{"level1count": 3},
+                                    {"level1count": 2, "level2count": 1},
+                                    {"level1count": 2, "level3count":1},
+                                    {"level1count": 1, "level2count": 2},
+                                    {"level1count": 1, "level2count": 1, "level3count": 1},
+                                    {"level2count": 3},
+                                    {"level2count": 2, "level3count": 1},
+                                    {"level3count": 1, "level2count": 2},
+                                    {"level3count": 2, "level2count": 1},
+                                    {"level3count": 3}]
         play_screen = GameLevel_Composite("Play screen " + str(self.__play_screen_level))
         # Tạo quái tương ứng với cấp độ màn chơi
         index = self.__play_screen_level - 1
-        temp = self.__MONSTER_LEVELS_OF_PLAY_SCREEN[index]
+        temp = __MONSTER_LEVELS_OF_PLAY_SCREEN[index]
         name_monster = ['Gargoyle', 'Demon', 'Android']
         random.shuffle(name_monster)
         selected = 0 # vị trí chọn tên quái
