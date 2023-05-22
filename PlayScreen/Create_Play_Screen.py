@@ -9,8 +9,12 @@ from GameLevel_Composite import GameLevel_Composite
 from GameLevel_Leaf import GameLevel_Leaf
 import random
 
-if __name__ == '__main__':
-    monster_levels_of_play_screen = [{"level1count": 3},
+class Create_Play_Screen:
+    def __init__(self, play_screen_level):
+        self._play_screen_level = play_screen_level
+    
+    def create(self):
+        monster_levels_of_play_screen = [{"level1count": 3},
                                      {"level1count": 2, "level2_count": 1},
                                      {"level1count": 2, "level3_count":1},
                                      {"level1count": 1, "level2_count": 2},
@@ -20,31 +24,35 @@ if __name__ == '__main__':
                                      {"level3count": 1, "level2_count": 2},
                                      {"level3count": 2, "level2_count": 1},
                                      {"level3count": 3}]
+        play_screen = GameLevel_Composite("Play screen " + str(self._play_screen_level))
+        # Tạo quái tương ứng với cấp độ màn chơi
+        index = self._play_screen_level - 1
+        temp = monster_levels_of_play_screen[index]
+        name_monster = ['Gargoyle', 'Demon', 'Android']
+        random.shuffle(name_monster)
+        selected = 0 # vị trí chọn tên quái
+        if 'level1count' in temp:
+            for i in range(temp['level1count']):
+                play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 1))
+                selected = selected + 1
+        if 'level2_count' in temp:
+            for i in range(temp['level2_count']):
+                play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 2))
+                selected = selected + 1
+        if 'level3_count' in temp:
+            for i in range(temp['level3_count']):
+                play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 3))
+                selected = selected + 1
+        return play_screen
 
-    # Chọn cấp độ màn chơi
-    play_screen_level = 4 #=============================> CHỌN ĐỘ KHÓ <================================
-    play_screen = GameLevel_Composite("Play screen " + str(play_screen_level))
 
-    # Tạo quái tương ứng với cấp độ màn chơi
-    index = play_screen_level - 1
-    temp = monster_levels_of_play_screen[index]
-    name_monster = ['Gargoyle', 'Demon', 'Android']
-    random.shuffle(name_monster)
-    selected = 0 # vị trí chọn tên quái
-    if 'level1count' in temp:
-        for i in range(temp['level1count']):
-            play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 1))
-            selected = selected + 1
-    if 'level2_count' in temp:
-        for i in range(temp['level2_count']):
-            play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 2))
-            selected = selected + 1
-    if 'level3_count' in temp:
-        for i in range(temp['level3_count']):
-            play_screen.add_monster(GameLevel_Leaf(name_monster[selected], 3))
-            selected = selected + 1
-    selected = 0
 
+
+if __name__ == '__main__':
+    # TEST tạo màn chơi
+    create_play_screen = Create_Play_Screen(play_screen_level=1)
+    play_screen = create_play_screen.create()
+    # Hiển thị kết quả TEST
     print('\n=================== '+ 'LIST MONSTER OF ' + str(play_screen.get_name()) + ' ===================\n')
     for monster in play_screen.list_monster:
         print('Name monster: {}'.format(monster.get_name()))
