@@ -14,3 +14,7 @@ class DmgSkill:
         return self.type
     def getCoolDown(self):
         return self.cd
+    
+    def use(self,character,monster):
+        monster.setHp(monster.getHp() - self.power)
+        monster.normalAtk(character)

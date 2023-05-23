@@ -33,4 +33,33 @@ class Character:
     def setAtk(self, atk):
         self.atk = atk
 
+    def earnGold(self, gold):
+        self.gold = self.gold + gold
+
+    def save_state(self):
+        return Memento(self.hp, self.atk)
+
+    def restore_state(self, memento):
+        self.hp = memento.hp
+        self.atk = memento.atk
+
+class Memento:
+    def __init__(self, hp, atk):
+        self.hp = hp
+        self.atk = atk
+
+
+class Caretaker:
+    def __init__(self):
+        self.mementos = []
+
+    def save_memento(self, memento):
+        self.mementos.append(memento)
+
+    def get_memento(self):
+        return self.mementos.pop()
+
+    
+
+
     
