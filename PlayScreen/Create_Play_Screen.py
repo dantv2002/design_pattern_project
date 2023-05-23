@@ -68,7 +68,7 @@ if __name__ == '__main__':
     monster2.set_coin(0)
     monster3.set_coin(100)
     monster3.set_max_health(100)
-    print()
+
     for monster in play_screen.list_monster:
         print('Name monster: {}'.format(monster.get_name()))
         print('Level monster: {}'.format(monster.get_level()))

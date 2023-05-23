@@ -8,7 +8,7 @@ from CreateSkill.Skill_Factory import SkillFactory
 class Warrior:
     #attribute
     name = "Warrior"
-    hp = 15
+    hp = 40
     atk = 10
     skill = None
 

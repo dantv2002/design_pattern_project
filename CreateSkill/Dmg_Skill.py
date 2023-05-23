@@ -16,5 +16,6 @@ class DmgSkill:
         return self.cd
     
     def use(self,character,monster):
-        monster.setHp(monster.getHp() - self.power)
-        monster.normalAtk(character)
+        monster.set_max_health(monster.get_max_health() - self.power)
+        monster.monster_atk(character)
+

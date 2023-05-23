@@ -10,7 +10,7 @@ class Monster(ABC):
         self.__strength = 0
         self.__coin = 0
     def generate_random(self):
-        self.__max_health = round(random.uniform(5, 10) * self.__level * self.health_factor)
+        self.__max_health = round(random.uniform(10, 20) * self.__level * self.health_factor)
         self.__strength = round(random.uniform(1, 5) * self.__level * self.strength_factor)
         self.__coin = round(random.uniform(10, 15) * self.__level * self.coin_factor)
 
@@ -37,12 +37,17 @@ class Monster(ABC):
     
     @max_health.setter
     def max_health(self, current_health):
-        if self.__max_health > current_health and current_health >= 0:
+        if self.__max_health > current_health:
             self.__max_health = current_health
     
     @coin.setter
     def coin(self, current_coin):
         if self.__coin > current_coin and current_coin >=0:
             self.__coin = current_coin
+
+    def normalAtk(self,character,reduce=0):
+        monsterDame = (self.__strength - reduce) if (self.__strength - reduce) > 0 else 0
+        print("monster Dame: ", monsterDame)
+        character.setHp(character.getHp() - monsterDame)
     
 

@@ -24,3 +24,6 @@ class GameLevel_Leaf(GameLevel_Component):
     
     def set_coin(self, current_coin):
         self.__monster.coin = current_coin
+
+    def monster_atk(self,character,reduce=0):
+        self.__monster.normalAtk(character,reduce)

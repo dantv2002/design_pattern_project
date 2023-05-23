@@ -14,3 +14,7 @@ class HealSkill:
         return self.type
     def getCoolDown(self):
         return self.cd
+    
+    def use(self,character,monster):
+        character.setHp(character.getHp() + self.power)
+        monster.monster_atk(character)
