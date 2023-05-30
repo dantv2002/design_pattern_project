@@ -7,7 +7,7 @@ class Character:
         self.hp = thisClass.getHp()
         self.atk = thisClass.getAtk()
         self.gold = 0
-
+        self.state = NormalState()
 
     #getter
 
@@ -43,6 +43,12 @@ class Character:
         self.hp = memento.hp
         self.atk = memento.atk
 
+    def upgrade(self):
+        self.state.upgrade(self)
+
+    def set_state(self, state):
+        self.state = state
+
 class Memento:
     def __init__(self, hp, atk):
         self.hp = hp
@@ -59,7 +65,27 @@ class Caretaker:
     def get_memento(self):
         return self.mementos.pop()
 
-    
+class State:
+    def upgrade(self, character):
+        pass
 
+class NormalState(State):
+    def upgrade(self, character):
+        # Tăng 10%
+        character.atk = int(character.atk * 1.1)
+        character.hp = int(character.hp * 1.1)   
+        if (character.atk < 10):
+            character.atk += 1
+        elif (character.hp < 10):
+            character.hp += 1
 
-    
+class StrongState(State):
+    def upgrade(self, character):
+         # Tăng 20%
+        character.atk = int(character.atk * 1.2)
+        character.hp = int(character.hp * 1.2)    
+        if (character.atk < 10):
+            character.atk += 1
+        elif (character.hp < 10):
+            character.hp += 1
+
