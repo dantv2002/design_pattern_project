@@ -58,7 +58,7 @@ class Screen3(tk.Toplevel):
                 self.wait_variable(self.numberSkill)
                 numberSkill = self.numberSkill.get()
                 if(numberSkill == "0"):
-                    self.text_box.see(tk.END)
+                   
                     self.input_handler.handle_input(NormalAtackCommand(self.master.myCharacters,self.play_screen.list_monster[self.counter]))
                     if(self.skillCD > 0):
                         self.skillCD = self.skillCD - 1
@@ -67,8 +67,9 @@ class Screen3(tk.Toplevel):
                     self.text_box.insert(tk.END, "Skill Cooldown " + str(self.skillCD) + "\n")
                     self.labelCharHP.config(text=self.master.myCharacters.getHp())
                     self.labelMonsterHP.config(text=self.play_screen.list_monster[self.counter].get_max_health())
-                elif(numberSkill == "1"):
                     self.text_box.see(tk.END)
+                elif(numberSkill == "1"):
+            
                     if(self.skillCD == 0):
                         self.input_handler.handle_input(SkillUseCommand(self.master.myCharacters,self.play_screen.list_monster[self.counter]))
                         self.skillCD = self.master.myCharacters.getSkill().getCoolDown()
@@ -78,10 +79,12 @@ class Screen3(tk.Toplevel):
                         self.labelMonsterHP.config(text=self.play_screen.list_monster[self.counter].get_max_health())
                     else: 
                         self.text_box.insert(tk.END, "Skill Cooldown " + str(self.skillCD) + "\n")
+                    self.text_box.see(tk.END)
             if(self.master.myCharacters.getHp() > 0):
                 self.text_box.see(tk.END)
                 self.text_box.insert(tk.END, "Next Monster is comming " + "\n")
                 self.master.myCharacters.earnGold(self.play_screen.list_monster[self.counter].get_coin())
+                self.text_box.delete("1.0", tk.END)
                 self.counter = self.counter + 1
 
         if self.master.myCharacters.getHp() > 0:

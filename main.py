@@ -18,16 +18,10 @@ def main():
 
     charBuilder = CharacterBuilder()
     charBuilder.set_name("ThoTy")
-    charBuilder.set_class(classFactory.create("warrior")) #mage, warrior, assassin, priest
+    charBuilder.set_class(classFactory.create("warrior")) #mage, warrior, priest
 
     myChar = charBuilder.build()
-    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
-    myChar.upgrade()
-    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
-    myChar.upgrade()
-    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
-    myChar.upgrade()
-    print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
+
     startARound(myChar)
     print("Real Gold: ",myChar.getGold())
     # print(f"name: {myChar.getName()}, gold: {myChar.getGold()}, skill: {myChar.getSkill().getName()}, class: {myChar.getClass().getName()}, hp: {myChar.getHp()}")
