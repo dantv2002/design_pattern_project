@@ -14,6 +14,7 @@ class MainApplication(tk.Tk):
         super().__init__()
         self.title("My Game")
         self.myCharacters = None
+        self.levelInput = None
         self.screen1 = Screen1(self)
         self.screen2 = Screen2(self)
         self.screen3 = Screen3(self)
@@ -74,7 +75,7 @@ class MainApplication(tk.Tk):
         char = charBuilder.build()
         messagebox.showinfo("Tạo nhân vật", f"Tạo thành công với tên <{char.getName()}>, thuộc class <{char.getClass().getName()}>")
         self.myCharacters = char
-        print(self.myCharacters.getName()+self.myCharacters.getClass().getName())
+        # print(self.myCharacters.getName()+self.myCharacters.getClass().getName())
 
 
 if __name__ == "__main__":

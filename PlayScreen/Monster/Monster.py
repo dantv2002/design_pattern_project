@@ -10,9 +10,9 @@ class Monster(ABC):
         self.__strength = 0
         self.__coin = 0
     def generate_random(self):
-        self.__max_health = round(random.uniform(10, 20) * self.__level * self.health_factor)
+        self.__max_health = round(random.uniform(40, 70) * self.__level * self.health_factor)
         self.__strength = round(random.uniform(1, 5) * self.__level * self.strength_factor)
-        self.__coin = round(random.uniform(10, 15) * self.__level * self.coin_factor)
+        self.__coin = round(random.uniform(10, 30) * self.__level * self.coin_factor)
 
     # getter/setter
     @property
