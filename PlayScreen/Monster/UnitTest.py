@@ -12,8 +12,8 @@ class TestMonsterFatory(unittest.TestCase):
         self.assertIsInstance(MonsterFactory.get_factory(levels[1]), Level2MonsterFactory)
         self.assertIsInstance(MonsterFactory.get_factory(levels[2]), Level3MonsterFactory)
 if __name__ == '__main__':
-    unittest.main()
-    # monster = MonsterFactory.get_factory(levels[0])
-    # monster1 = monster.create_monster('Goblin')
-    # print(monster1.max_health)
+    # unittest.main()
+    ConcreteFactory = MonsterFactory.get_factory(levels[0])
+    monster1 = ConcreteFactory.create_monster('Goblin')
+    print(monster1.max_health)
 
